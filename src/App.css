@@ -29,7 +29,7 @@ header{
   position: fixed;
   height: 70px;
   width: 100%;
-  top: -70px;
+  top: 0;
   left: 0;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   background: #303236;
@@ -57,6 +57,7 @@ header.active{
   background: url(../src/logo_grey.svg);
   background-size: 100vw;
   background-repeat: no-repeat;
+  background-position: bottom;
 }
 .main_section__content{
   position: absolute;
@@ -136,14 +137,15 @@ h4.discussion_section__title{
   height: 300px;
   border-radius: 7px;
   border: solid 2px #898a8a;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   background-color: #000;
   overflow: hidden;
-  position: relative;
+  /* position: relative;
   transform: translateX(-50%);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; */
+  margin: 30px auto;
 }
-.discussion_section__item.active{
+/* .discussion_section__item.active{
   left: 50%!important;
 }
 .discussion_section__item:nth-child(odd){
@@ -151,7 +153,7 @@ h4.discussion_section__title{
 }
 .discussion_section__item:nth-child(even){
       left: 150%;
-}
+} */
 .discussion_section__item__title{
   height: 34px;
   background-color: #444443;

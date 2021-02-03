@@ -59,6 +59,14 @@ function App() {
                         <span></span>
                     </div>
                     <div className="discussion_section__item__content">
+                        <pre>
+                            &gt; tar -zxf git-2.8.0.tar.gz<br/>
+                            &gt; cd git-2.8.0<br/>
+                            &gt; make configure<br/>
+                            &gt; ./configure --prefix=/usr<br/>
+                            &gt; make all doc info<br/>
+                            &gt; sudo make install install-doc install-html install-info<br/>
+                        </pre>
                     </div>
                 </div>
                 <div className="discussion_section__item">
@@ -67,6 +75,12 @@ function App() {
                         <span></span>
                     </div>
                     <div className="discussion_section__item__content">
+                        <pre>
+                            &gt; git init<br/>
+                            &gt; touch README.md<br/>
+                            &gt; git add README.md<br/>
+                            &gt; git commit -m "[create repository]"<br/>
+                        </pre>
                     </div>
                 </div>
                 <div className="discussion_section__item">
@@ -75,6 +89,10 @@ function App() {
                         <span></span>
                     </div>
                     <div className="discussion_section__item__content">
+                        <pre>
+                            &gt; cinst nodejs.install<br/>
+                            &gt; node --version<br/>
+                        </pre>
                     </div>
                 </div>
                 <div className="discussion_section__item">
@@ -83,6 +101,10 @@ function App() {
                         <span></span>
                     </div>
                     <div className="discussion_section__item__content">
+                        <pre>
+                            &gt; npm init<br/>
+                            &gt; npm -v<br/>
+                        </pre>
                     </div>
                 </div>
                 <div className="discussion_section__item">
@@ -91,6 +113,17 @@ function App() {
                         <span></span>
                     </div>
                     <div className="discussion_section__item__content">
+                        <pre>
+                            &lt;!DOCTYPE html&gt;<br/>
+                            &lt;html lang=&quot;en&quot;&gt;<br/>
+                            &lt;head&gt;<br/>
+                            &lt;meta charset=&quot;UTF-8&quot;&gt;<br/>
+                            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br/>
+                            <br/>
+                            &lt;title&gt;Document&lt;/title&gt;<br/>
+                            &lt;/head&gt;<br/>
+                            &lt;body&gt;<br/>
+                        </pre>
                     </div>
                 </div>
                 <div className="discussion_section__item">
@@ -99,6 +132,13 @@ function App() {
                         <span></span>
                     </div>
                     <div className="discussion_section__item__content">
+                        <pre>
+                            @font-face <br/>
+                            font-family: "Lato Regular";<br/>
+                            src: url("../fonts/lato-regular-webfont.woff2") format("woff2");<br/>
+                            font-style: normal;<br/>
+                            font-weight: normal;<br/>
+                        </pre>
                     </div>
                 </div>
             </div>
@@ -109,13 +149,13 @@ function App() {
             <div className="footer__content">
                 <span className="author_name">Viktor Bykov</span>
                 <div className="links_wrapper">
-                    <a className="github_link" href="https://github.com/ViktorBykov/Onix-Internship" target="_blank">
+                    <a className="github_link" href="https://github.com/ViktorBykov/Onix-Internship" target="_blank" rel="noreferrer noopener">
                         <img src={github_logo} alt="Github logo"/>
                     </a>
-                    <a className="dribbble_link" href="https://dribbble.com/shots/14852813-Design-agency-Web-page-Freebie" target="_blank">
+                    <a className="dribbble_link" href="https://dribbble.com/shots/14852813-Design-agency-Web-page-Freebie" target="_blank" rel="noreferrer noopener">
                         <img src={dribbble_logo} alt="Dribbble logo"/>
                     </a>
-                    <a className="onix_link" href="https://onix.kr.ua/" target="_blank">
+                    <a className="onix_link" href="https://onix.kr.ua/" target="_blank" rel="noreferrer noopener">
                         <img src={onix_logo_sm} alt="Onix small logo"/>
                     </a>
                 </div>
