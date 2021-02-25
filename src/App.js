@@ -1,9 +1,9 @@
 import React from 'react';
-import logo_blue from './logo_blue.svg';
-import logo_white from './logo_white.svg';
-import github_logo from './github_logo.svg';
-import dribbble_logo from './dribbble_logo.svg';
-import onix_logo_sm from './onix_logo_sm.svg';
+import logo_blue from './assets/images/logo_blue.svg';
+import logo_white from './assets/images/logo_white.svg';
+import github_logo from './assets/images/github_logo.svg';
+import dribbble_logo from './assets/images/dribbble_logo.svg';
+import onix_logo_sm from './assets/images/onix_logo_sm.svg';
 import './App.css';
 
 class App extends React.Component {
@@ -18,7 +18,15 @@ class App extends React.Component {
             designLink2: "https://onix.kr.ua/"
         }
     }
+
     render(){
+        const {title} = this.state;
+        const {internshipDetails} = this.state;
+        const {authorName} = this.state;
+        const {gitHubLink} = this.state;
+        const {designLink} = this.state;
+        const {designLink2} = this.state;
+
         return(
             <div className="App">
 
@@ -27,7 +35,7 @@ class App extends React.Component {
                     <div className="header__logo">
                         <img src={logo_blue} alt="Onix logo" width="117" height="30"/>
                     </div>
-                    <div className="header__title">{this.state.title}</div>
+                    <div className="header__title">{title}</div>
                 </header>
 
                 {/* Main section */}
@@ -40,7 +48,7 @@ class App extends React.Component {
                         </div>
                         <div className="main_section__content__wrapper">
                                 <h2>internship</h2>
-                                <h3>{this.state.internshipDetails}</h3>
+                                <h3>{internshipDetails}</h3>
                         </div>
                     </div>
                 </div>
@@ -158,15 +166,15 @@ class App extends React.Component {
                 {/* Footer */}
                 <footer>
                     <div className="footer__content">
-                        <span className="author_name">{this.state.authorName}</span>
+                        <span className="author_name">{authorName}</span>
                         <div className="links_wrapper">
-                            <a className="github_link" href={this.state.gitHubLink} target="_blank" rel="noreferrer noopener">
+                            <a className="github_link" href={gitHubLink} target="_blank" rel="noreferrer noopener">
                                 <img src={github_logo} alt="Github logo"/>
                             </a>
-                            <a className="dribbble_link" href={this.state.designLink} target="_blank" rel="noreferrer noopener">
+                            <a className="dribbble_link" href={designLink} target="_blank" rel="noreferrer noopener">
                                 <img src={dribbble_logo} alt="Dribbble logo"/>
                             </a>
-                            <a className="onix_link" href={this.state.designLink2} target="_blank" rel="noreferrer noopener">
+                            <a className="onix_link" href={designLink2} target="_blank" rel="noreferrer noopener">
                                 <img src={onix_logo_sm} alt="Onix small logo"/>
                             </a>
                         </div>
