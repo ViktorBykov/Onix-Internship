@@ -12,8 +12,10 @@ class Comporator extends React.Component {
             pokemonParsedImages: [],
             pokemonCurrentImage: 0,
             isLoaded: false,
+            error: false,
         };
     }
+
 
     // Get pokemon stat
     getPokemonStats() {
@@ -34,6 +36,7 @@ class Comporator extends React.Component {
             return <img src={this.state.pokemonParsedImages[this.state.pokemonCurrentImage]} alt="" />
         }
     }
+
 
     // Get new pokemon foto by pressing next/prev buttons
     switchFoto = (event) => {
@@ -56,9 +59,14 @@ class Comporator extends React.Component {
         }
     }
 
-    pokemonNotFound() {
-        console.log('not found, check your input');
+
+    // Display error message
+    errorMessage() {
+        if (this.state.error){
+           return <span className="error_message">Pokemon not found, check your input</span>;
+        }
     }
+
 
     // Pars all images of current pokemon
     parsImages() {
@@ -88,45 +96,47 @@ class Comporator extends React.Component {
         }
     }
 
-    // Get new pokemon by user input
-    getNewPokemon = (e) => {
-        this.setState({ currentPokemon: e.target.value });
-        if (e.target.value !== '') {
 
-            fetch(`https://pokeapi.co/api/v2/pokemon/${e.target.value}`)
-                .then((response) => {
-                    if (response.ok) {
-
-                        return response.json();
-                    }
-                })
-                .then((data) => {
-                    if (data === undefined) {
-                        this.pokemonNotFound();
-                    } else {
-                        this.setState({
-                            pokemonData: data,
-                            isLoaded: true,
-                        });
-                        this.parsImages();
-                    }
-                });
-        }
+    // Get random pokemon on load
+    getRandomPokemonId() {
+        return Math.floor(Math.random() * 899);
     }
 
-    componentDidMount() {
-        fetch('https://pokeapi.co/api/v2/pokemon/89')
+
+    // Get new pokemon by user input
+    getPokemonData = (e) => {
+        let pokemonId;
+        if (e && e.target.value !== '') {
+            pokemonId = e.target.value;
+        } else {
+            pokemonId = this.getRandomPokemonId();
+        }
+        this.setState({ currentPokemon: pokemonId });
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
             .then((response) => {
-                return response.json();
+                if (response.ok) {
+                    return response.json();
+                }
             })
             .then((data) => {
-                this.setState({
-                    pokemonData: data,
-                    // pokemonImages: data.sprites,
-                    isLoaded: true,
-                });
-                this.parsImages();
+                if (data === undefined) {
+                    this.setState({
+                        error: true,
+                    });
+                } else {
+                    this.setState({
+                        pokemonData: data,
+                        isLoaded: true,
+                        error: false,
+                    });
+                    this.parsImages();
+                }
             });
+    }
+
+
+    componentDidMount() {
+        this.getPokemonData();
     }
 
 
@@ -141,8 +151,8 @@ class Comporator extends React.Component {
                     <div className="pokemon_cards__wrapper">
                         <div className="pokemon_cards__input_wrapper">
                             <p>Введіть ID або ім'я покемона:</p>
-                            <input onChange={this.getNewPokemon} name="id_name" />
-                            {/* <button onClick={this.getPokemon}>Go!</button> */}
+                            <input onChange={this.getPokemonData} name="id_name" />
+                            {this.errorMessage()}
                         </div>
                         <div className="pokemon_card">
                             <span className="pokemon_name">{pokemonData.name}</span>

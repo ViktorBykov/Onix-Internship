@@ -113,10 +113,17 @@
     display: flex;
     width: fit-content;
     margin: 0 auto;
+    position: relative;
 }
 .pokemon_cards__input_wrapper p{
     color: #fff;
 }
 .pokemon_card__foto_buttons{
     padding: 0 20px;
+}
+.error_message{
+    position: absolute;
+    top: -25px;
+    right: 13px;
+    color: red;
 }
