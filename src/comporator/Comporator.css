@@ -127,3 +127,24 @@
     right: 13px;
     color: red;
 }
+.pokemon_cards__input_wrapper input{
+    border: 1px solid transparent;
+}
+input.error{
+    border: 1px solid red;
+    animation: 0.3s error ease;
+}
+@keyframes error {
+    0% {
+      transform: translateX(0);    
+    }
+    30% {
+      transform: translateX(-15px);    
+    }
+    70% {
+      transform: translateX(15px);    
+    }
+    100% {
+      transform: translateX(0);    
+    }
+  }
