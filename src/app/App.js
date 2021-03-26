@@ -1,10 +1,8 @@
 import React from 'react';
 
 import Header from '../header/Header';
-import Content from '../content/Content';
-import Footer from '../footer/Footer';
-import Biography from '../biography/Biography';
-import Comporator from '../comporator/Comporator';
+import Pokemons from '../pokemons/Pokemons';
+
 
 import './App.css';
 
@@ -20,10 +18,7 @@ class App extends React.Component {
         return(
             <div className="App">
                 <Header />
-                <Content />
-                {/* <Biography /> */}
-                <Comporator />
-                <Footer />
+                <Pokemons />
             </div>
         );
     }
